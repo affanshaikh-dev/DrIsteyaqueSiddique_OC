@@ -1,0 +1,170 @@
+[
+  {
+    "id": "arthroscopic-surgery",
+    "title": "Arthroscopic Surgery",
+    "category": "Minimally Invasive",
+    "icon": "Microscope",
+    "desc": "Keyhole surgery to diagnose and treat joint problems with minimal scarring and quick recovery.",
+    "image": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=600&auto=format&fit=crop",
+    "content": {
+      "overview": "Arthroscopic surgery is a state-of-the-art, minimally invasive procedure used by Dr. Isteyaque to diagnose and treat a wide range of joint problems. Using a tiny camera called an arthroscope and specialized miniature surgical instruments, this technique allows for precise treatment of the knee, shoulder, hip, and other joints without the need for large incisions.",
+      "symptoms": [
+        "Persistent joint pain that doesn't respond to rest",
+        "Swelling, stiffness, and inflammation in the joint",
+        "Catching, clicking, or popping sensations during movement",
+        "Feeling of instability or the joint 'giving way'"
+      ],
+      "benefits": [
+        "Significantly smaller incisions (keyhole size)",
+        "Less tissue damage and minimal scarring",
+        "Reduced post-operative pain and faster healing",
+        "Quicker return to normal activities and sports"
+      ],
+      "recovery": "Because arthroscopy is minimally invasive, recovery is typically much faster than traditional open surgery. Many patients can return home the same day. Depending on the specific repair done, you may need crutches or a sling for a short period, followed by a guided physical therapy program to restore full strength and mobility."
+    }
+  },
+  {
+    "id": "total-knee-replacement",
+    "title": "Total Knee Replacement Surgery (TKR)",
+    "category": "Joint Replacement",
+    "icon": "Bone",
+    "desc": "Advanced knee replacement for severe arthritis, ensuring pain-free movement.",
+    "image": "https://images.unsplash.com/photo-1584516150909-c43483ee7932?q=80&w=600&auto=format&fit=crop",
+    "content": {
+      "overview": "Total Knee Replacement (TKR) is a highly successful surgical procedure designed to relieve pain and restore function in severely diseased knee joints. Dr. Isteyaque uses the latest advancements, including specialized implants and minimally invasive techniques, to replace the damaged cartilage and bone with durable, high-performance artificial components.",
+      "symptoms": [
+        "Severe knee pain that limits daily activities (walking, climbing stairs)",
+        "Moderate to severe pain while resting, either day or night",
+        "Chronic knee inflammation and swelling that doesn't improve with medication",
+        "Knee deformity (bowing in or out)"
+      ],
+      "benefits": [
+        "Dramatic reduction or complete elimination of knee pain",
+        "Restoration of natural knee movement and mobility",
+        "Correction of leg deformities (like bowlegs or knock-knees)",
+        "Significant improvement in overall quality of life"
+      ],
+      "recovery": "Rehabilitation begins almost immediately after surgery. Most patients are encouraged to stand and begin walking with support within 24 hours. A structured physical therapy plan is crucial for recovery. Most patients can resume normal daily activities within 3 to 6 weeks, and experience full recovery and maximum benefit within 3 to 6 months."
+    }
+  },
+  {
+    "id": "total-hip-replacement",
+    "title": "Total Hip Replacement Surgery (THR)",
+    "category": "Joint Replacement",
+    "icon": "ActivitySquare",
+    "desc": "Advanced techniques to replace damaged hip joints, ensuring durability and mobility.",
+    "image": "https://images.unsplash.com/photo-1551601651-2a8555f1a136?q=80&w=600&auto=format&fit=crop",
+    "content": {
+      "overview": "Total Hip Replacement (THR) is a life-changing procedure for patients suffering from severe hip arthritis or injury. The surgery involves removing the damaged bone and cartilage and replacing it with a prosthetic joint. Dr. Isteyaque focuses on tissue-sparing approaches to ensure the new hip feels natural, provides excellent stability, and lasts for decades.",
+      "symptoms": [
+        "Hip pain that limits everyday activities like walking or bending",
+        "Pain that continues while resting, either day or night",
+        "Stiffness in a hip that limits the ability to move or lift the leg",
+        "Inadequate pain relief from anti-inflammatory drugs or physical therapy"
+      ],
+      "benefits": [
+        "Exceptional relief from chronic hip pain",
+        "Improved mobility and ability to walk without a limp",
+        "Highly durable implants designed for long-term use",
+        "Return to low-impact sports and active lifestyle"
+      ],
+      "recovery": "Hip replacement recovery has become remarkably fast. Patients usually walk with assistance on the day of surgery. You will be guided through specific exercises to strengthen the hip muscles. While you must follow specific precautions initially to prevent dislocation, most patients return to normal activities within 4 to 6 weeks."
+    }
+  },
+  {
+    "id": "complex-treatment",
+    "title": "Complex Treatment",
+    "category": "Trauma Care",
+    "icon": "Stethoscope",
+    "desc": "Specialized care for complex orthopedic conditions requiring advanced medical intervention.",
+    "image": "https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?q=80&w=600&auto=format&fit=crop",
+    "content": {
+      "overview": "Complex orthopedic treatments address severe conditions, multiple injuries, failed previous surgeries, or complex joint deformities. Dr. Isteyaque brings extensive experience and advanced surgical planning to manage these difficult cases, utilizing customized implants, bone grafting, and multi-disciplinary approaches to salvage joints and restore function.",
+      "symptoms": [
+        "Persistent pain after a previous orthopedic surgery",
+        "Severe bone loss or complex deformities",
+        "Multiple traumatic injuries affecting different limbs",
+        "Chronic infections in bones or joints (Osteomyelitis)"
+      ],
+      "benefits": [
+        "Specialized solutions for conditions considered 'untreatable'",
+        "Correction of severe deformities to improve function",
+        "Salvage of natural joints whenever possible",
+        "Comprehensive, customized care plans tailored to unique anatomies"
+      ],
+      "recovery": "Recovery from complex treatments is highly variable and depends entirely on the specific procedures performed. It often requires a longer, phased rehabilitation program. Dr. Isteyaque and his team will provide a detailed, long-term roadmap for recovery, focusing on gradual milestones to ensure safe and effective healing."
+    }
+  },
+  {
+    "id": "fracture-care",
+    "title": "Fracture Care",
+    "category": "Trauma Care",
+    "icon": "HeartPulse",
+    "desc": "Comprehensive management and treatment of bone fractures for optimal healing.",
+    "image": "https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=600&auto=format&fit=crop",
+    "content": {
+      "overview": "Proper fracture care is critical to ensure bones heal correctly and regain full strength. From simple casts for minor fractures to complex surgical fixation (using plates, screws, or rods) for severe breaks, our clinic provides comprehensive, emergency-ready care. We focus on anatomical alignment and early mobilization to prevent stiffness.",
+      "symptoms": [
+        "Intense pain at the site of trauma",
+        "Visible deformity or unnatural angle of the limb",
+        "Swelling, bruising, and tenderness around the injury",
+        "Inability to put weight on the injured area or move it"
+      ],
+      "benefits": [
+        "Precise alignment of bones for optimal, natural healing",
+        "Advanced fixation techniques allowing for earlier movement",
+        "Prevention of long-term arthritis or joint stiffness",
+        "Comprehensive care from initial injury through complete rehabilitation"
+      ],
+      "recovery": "Bone healing generally takes 6 to 8 weeks, but complete recovery can take longer depending on the severity of the fracture. You may be immobilized initially, but early, controlled movement is often encouraged to maintain joint health. Physical therapy will be essential to rebuild muscle strength lost during immobilization."
+    }
+  },
+  {
+    "id": "sports-injury",
+    "title": "Sports Injury",
+    "category": "Sports Medicine",
+    "icon": "Activity",
+    "desc": "Expert treatment for sports-related injuries to get you back in the game safely.",
+    "image": "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=600&auto=format&fit=crop",
+    "content": {
+      "overview": "Sports injuries require specialized care that not only heals the injury but also restores the high level of performance athletes demand. Dr. Isteyaque treats conditions ranging from tennis elbow and rotator cuff tears to meniscus injuries and shin splints. We offer both conservative treatments (like PRP injections) and advanced surgical interventions.",
+      "symptoms": [
+        "Sudden, severe pain during physical activity",
+        "Swelling, bruising, or joint instability",
+        "Inability to place weight on a leg, knee, ankle, or foot",
+        "Visible dislocation or break of a bone"
+      ],
+      "benefits": [
+        "Targeted treatments focused on rapid return to play",
+        "Access to regenerative medicine options to accelerate healing",
+        "Minimally invasive surgical options to reduce downtime",
+        "Sport-specific rehabilitation and injury prevention education"
+      ],
+      "recovery": "The timeline for returning to sports depends heavily on the specific injury. Our rehabilitation protocols are highly aggressive yet safe, focusing on restoring range of motion, building strength, and eventually incorporating sport-specific drills. We ensure you are biomechanically sound before clearing you for competition."
+    }
+  },
+  {
+    "id": "ligament-injury",
+    "title": "Ligament Injury",
+    "category": "Sports Medicine",
+    "icon": "ActivitySquare",
+    "desc": "Advanced repair and reconstruction of torn ligaments (ACL, PCL, etc.).",
+    "image": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=600&auto=format&fit=crop",
+    "content": {
+      "overview": "Ligaments are strong bands of tissue connecting bones, crucial for joint stability. Tears in ligaments, especially the ACL, PCL, or MCL in the knee, are common but debilitating. We offer state-of-the-art ligament reconstruction using high-quality grafts to restore structural integrity and prevent future joint damage like early-onset arthritis.",
+      "symptoms": [
+        "A loud 'pop' or a 'popping' sensation in the knee at the time of injury",
+        "Severe pain and inability to continue the activity",
+        "Rapid swelling within hours of the injury",
+        "A feeling of instability or the knee 'giving out' when bearing weight"
+      ],
+      "benefits": [
+        "Restoration of normal joint mechanics and stability",
+        "Prevention of further damage to cartilage and menisci",
+        "Advanced graft options tailored to the patient's age and activity level",
+        "High success rates for returning to cutting and pivoting sports"
+      ],
+      "recovery": "Ligament reconstruction requires a dedicated recovery process. Physical therapy starts immediately to restore range of motion. It takes several months for the new graft to fully incorporate into the bone. Full clearance for high-impact sports usually occurs between 6 to 9 months post-surgery, following strict functional testing."
+    }
+  }
+]
