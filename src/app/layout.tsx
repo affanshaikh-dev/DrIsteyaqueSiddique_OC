@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Inter } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/global/Navbar";
-import { Footer } from "@/components/global/Footer";
+import { Toaster } from "sonner";
 
 const fontHeading = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta-sans",
@@ -49,12 +48,9 @@ export default function RootLayout({
       className={`${fontHeading.variable} ${fontBody.variable} antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-screen flex flex-col bg-background text-foreground" suppressHydrationWarning>
-        <Navbar />
-        <main className="flex-1">
-          {children}
-        </main>
-        <Footer />
+      <body className="min-h-screen bg-background text-foreground" suppressHydrationWarning>
+        {children}
+        <Toaster position="top-center" richColors />
       </body>
     </html>
   );

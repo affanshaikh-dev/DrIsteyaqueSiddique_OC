@@ -1,10 +1,11 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Bone, ActivitySquare, Microscope, Activity, Stethoscope, HeartPulse } from "lucide-react";
+import { ArrowRight, Bone, ActivitySquare, Microscope, Activity, Stethoscope, HeartPulse, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import treatmentsData from "@/data/treatments.json";
+import { createClient } from "@/utils/supabase/client";
 
 // Map string icon names from JSON to Lucide components
 const iconMap: Record<string, React.ElementType> = {
@@ -17,6 +18,24 @@ const iconMap: Record<string, React.ElementType> = {
 };
 
 export function Treatments() {
+  const [treatmentsData, setTreatmentsData] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadTreatments() {
+      const supabase = createClient();
+      const { data } = await supabase
+        .from("treatments")
+        .select("*")
+        .eq("is_published", true)
+        .order("created_at", { ascending: false })
+        .limit(6);
+      if (data) setTreatmentsData(data);
+      setLoading(false);
+    }
+    loadTreatments();
+  }, []);
+
   return (
     <section className="py-20 lg:py-32 bg-white">
       <div className="container mx-auto max-w-[1280px] px-4 md:px-8 xl:px-0">
@@ -34,7 +53,13 @@ export function Treatments() {
           </div>
 
           <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {treatmentsData.slice(0, 6).map((treatment, index) => {
+            {loading ? (
+              <div className="col-span-2 flex justify-center py-12 text-gray-400">
+                <Loader2 className="w-8 h-8 animate-spin" />
+              </div>
+            ) : treatmentsData.length === 0 ? (
+              <p className="col-span-2 text-center text-gray-500 py-12">No treatments available.</p>
+            ) : treatmentsData.map((treatment, index) => {
               const Icon = iconMap[treatment.icon] || Activity;
               return (
                 <motion.div

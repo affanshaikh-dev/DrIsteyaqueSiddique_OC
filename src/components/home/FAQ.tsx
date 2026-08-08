@@ -1,35 +1,25 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus, Minus } from "lucide-react";
+import { Plus, Minus, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-const faqs = [
-  {
-    question: "Do I really need surgery for my joint pain?",
-    answer: "Not necessarily. We believe in a conservative approach first. Surgery is only recommended when physical therapy, medication, and lifestyle changes fail to provide relief. A thorough diagnosis is required to determine the best path.",
-  },
-  {
-    question: "What is robotic-assisted joint replacement?",
-    answer: "Robotic-assisted surgery allows for greater precision during joint replacement. It helps the surgeon plan the procedure accurately, leading to a better-fitting implant, less soft tissue damage, and potentially faster recovery.",
-  },
-  {
-    question: "How long does recovery take after knee replacement?",
-    answer: "Recovery varies by patient, but most individuals can start walking with assistance within a day after surgery. You can expect to return to most normal activities within 4 to 6 weeks, with full recovery taking a few months.",
-  },
-  {
-    question: "Do you accept insurance?",
-    answer: "Yes, we accept a wide range of major health insurance plans. Please contact our front desk with your insurance details to verify coverage before your appointment.",
-  },
-  {
-    question: "What should I bring to my first appointment?",
-    answer: "Please bring your ID, insurance card, any past medical records, X-rays or MRI reports related to your condition, and a list of current medications you are taking.",
-  },
-];
+import { createClient } from "@/utils/supabase/client";
 
 export function FAQ() {
+  const [faqs, setFaqs] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  useEffect(() => {
+    async function loadFaqs() {
+      const supabase = createClient();
+      const { data } = await supabase.from("faqs").select("*").order("created_at", { ascending: true });
+      if (data) setFaqs(data);
+      setLoading(false);
+    }
+    loadFaqs();
+  }, []);
 
   return (
     <section className="py-20 lg:py-32 bg-white">
@@ -57,7 +47,13 @@ export function FAQ() {
 
           <div className="lg:col-span-7">
             <div className="space-y-4">
-              {faqs.map((faq, index) => {
+              {loading ? (
+                <div className="flex justify-center py-12 text-gray-400">
+                  <Loader2 className="w-8 h-8 animate-spin" />
+                </div>
+              ) : faqs.length === 0 ? (
+                <p className="text-gray-500 text-center py-12">No FAQs available yet.</p>
+              ) : faqs.map((faq, index) => {
                 const isOpen = openIndex === index;
                 return (
                   <div

@@ -17,7 +17,7 @@ const heroSlides = [
   },
   {
     id: 2,
-    image: "https://images.unsplash.com/photo-1551076805-e18690c5e561?auto=format&fit=crop&q=80&w=2000",
+    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=2000",
   },
   {
     id: 3,

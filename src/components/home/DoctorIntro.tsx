@@ -26,6 +26,7 @@ export function DoctorIntro() {
                 src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=1000&auto=format&fit=crop"
                 alt="Dr. Isteyaque Siddique"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
               />
             </div>

@@ -1,10 +1,11 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Activity, ActivitySquare, Bone, Microscope, Stethoscope, HeartPulse } from "lucide-react";
+import { ArrowRight, Activity, ActivitySquare, Bone, Microscope, Stethoscope, HeartPulse, Loader2 } from "lucide-react";
 import { AppointmentCTA } from "@/components/home/AppointmentCTA";
-import treatmentsData from "@/data/treatments.json";
+import { createClient } from "@/utils/supabase/client";
 
 // Map string icon names from JSON to Lucide components
 const iconMap: Record<string, React.ElementType> = {
@@ -17,6 +18,23 @@ const iconMap: Record<string, React.ElementType> = {
 };
 
 export default function TreatmentsCatalog() {
+  const [treatmentsData, setTreatmentsData] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadTreatments() {
+      const supabase = createClient();
+      const { data } = await supabase
+        .from("treatments")
+        .select("*")
+        .eq("is_published", true)
+        .order("created_at", { ascending: false });
+      if (data) setTreatmentsData(data);
+      setLoading(false);
+    }
+    loadTreatments();
+  }, []);
+
   return (
     <div className="pt-24 pb-10 bg-[var(--color-background)]">
       {/* Hero */}
@@ -56,7 +74,15 @@ export default function TreatmentsCatalog() {
       <section className="py-12 pb-24">
         <div className="container mx-auto max-w-[1280px] px-4 md:px-8 xl:px-0">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {treatmentsData.map((treatment, index) => {
+            {loading ? (
+              <div className="col-span-full flex justify-center py-20 text-gray-400">
+                <Loader2 className="w-8 h-8 animate-spin" />
+              </div>
+            ) : treatmentsData.length === 0 ? (
+              <div className="col-span-full text-center text-gray-500 py-20">
+                <p>No treatments found.</p>
+              </div>
+            ) : treatmentsData.map((treatment, index) => {
               const Icon = iconMap[treatment.icon] || Activity;
               return (
                 <motion.div

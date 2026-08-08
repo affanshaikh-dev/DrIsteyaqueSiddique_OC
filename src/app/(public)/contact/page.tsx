@@ -1,8 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Send, Loader2 } from "lucide-react";
 import Image from "next/image";
+import { useState } from "react";
+import { toast } from "sonner";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -16,16 +18,32 @@ const formSchema = z.object({
   date: z.string().min(1, { message: "Please select a preferred date." }),
   message: z.string().optional(),
 });
+import { createClient } from "@/utils/supabase/client";
 
 export default function ContactPage() {
-  const { register, handleSubmit, formState: { errors } } = useForm<z.infer<typeof formSchema>>({
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { register, handleSubmit, reset, formState: { errors } } = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
   });
 
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
-    console.log(values);
-    // Submit logic here
-    alert("Appointment request submitted successfully!");
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    setIsSubmitting(true);
+    const supabase = createClient();
+    const { error } = await supabase.from("appointments").insert([{
+      name: values.name,
+      phone: values.phone,
+      email: values.email,
+      service: values.service,
+      message: values.message,
+    }]);
+
+    if (error) {
+      toast.error("Error submitting request. Please try again.");
+    } else {
+      toast.success("Appointment request submitted successfully!");
+      reset();
+    }
+    setIsSubmitting(false);
   };
 
   return (
@@ -196,8 +214,12 @@ export default function ContactPage() {
                   />
                 </div>
 
-                <Button type="submit" size="lg" className="w-full h-14 text-base shadow-lg shadow-blue-900/20">
-                  Submit Request <Send className="ml-2 w-5 h-5" />
+                <Button type="submit" size="lg" disabled={isSubmitting} className="w-full h-14 text-base shadow-lg shadow-blue-900/20">
+                  {isSubmitting ? (
+                    <>Submitting... <Loader2 className="ml-2 w-5 h-5 animate-spin" /></>
+                  ) : (
+                    <>Submit Request <Send className="ml-2 w-5 h-5" /></>
+                  )}
                 </Button>
                 <p className="text-xs text-center text-[var(--color-paragraph)]">
                   Your information is strictly confidential and protected by our privacy policy.

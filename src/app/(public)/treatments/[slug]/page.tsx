@@ -1,18 +1,41 @@
-import { notFound } from "next/navigation";
+"use client";
+
+import { useState, useEffect } from "react";
+import { notFound, useParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Phone, CalendarCheck } from "lucide-react";
-import treatmentsData from "@/data/treatments.json";
+import { ArrowRight, CheckCircle2, Phone, CalendarCheck, Loader2 } from "lucide-react";
+import { createClient } from "@/utils/supabase/client";
 
-export async function generateStaticParams() {
-  return treatmentsData.map((t) => ({
-    slug: t.id,
-  }));
-}
+export default function TreatmentDetail() {
+  const params = useParams();
+  const slug = params.slug as string;
+  const [treatment, setTreatment] = useState<any>(null);
+  const [allTreatments, setAllTreatments] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
 
-export default async function TreatmentDetail({ params }: { params: Promise<{ slug: string }> }) {
-  const resolvedParams = await params;
-  const treatment = treatmentsData.find((t) => t.id === resolvedParams.slug);
+  useEffect(() => {
+    async function loadData() {
+      const supabase = createClient();
+      const { data: treatments } = await supabase.from("treatments").select("*");
+      
+      if (treatments) {
+        setAllTreatments(treatments);
+        const current = treatments.find((t: any) => t.id === slug);
+        setTreatment(current);
+      }
+      setLoading(false);
+    }
+    loadData();
+  }, [slug]);
+
+  if (loading) {
+    return (
+      <div className="pt-40 pb-20 flex justify-center items-center min-h-[50vh]">
+        <Loader2 className="w-10 h-10 animate-spin text-[var(--color-primary)]" />
+      </div>
+    );
+  }
 
   if (!treatment) {
     notFound();
@@ -68,7 +91,7 @@ export default async function TreatmentDetail({ params }: { params: Promise<{ sl
                   Overview
                 </h2>
                 <p className="text-lg text-[var(--color-paragraph)] leading-relaxed">
-                  {treatment.content.overview}
+                  {treatment.content_overview}
                 </p>
               </div>
 
@@ -77,7 +100,7 @@ export default async function TreatmentDetail({ params }: { params: Promise<{ sl
                   Common Symptoms
                 </h3>
                 <ul className="space-y-4">
-                  {treatment.content.symptoms.map((symptom, idx) => (
+                  {treatment.content_symptoms?.map((symptom: string, idx: number) => (
                     <li key={idx} className="flex items-start gap-3">
                       <div className="w-6 h-6 rounded-full bg-red-50 text-red-500 flex items-center justify-center shrink-0 mt-0.5">
                         <span className="w-2 h-2 rounded-full bg-red-500" />
@@ -93,7 +116,7 @@ export default async function TreatmentDetail({ params }: { params: Promise<{ sl
                   Treatment Benefits
                 </h2>
                 <div className="grid sm:grid-cols-2 gap-4">
-                  {treatment.content.benefits.map((benefit, idx) => (
+                  {treatment.content_benefits?.map((benefit: string, idx: number) => (
                     <div key={idx} className="flex items-start gap-3 bg-[var(--color-surface)] p-6 rounded-2xl border border-[var(--color-border)]">
                       <CheckCircle2 className="w-6 h-6 text-green-500 shrink-0" />
                       <span className="text-[var(--color-heading)] font-medium">{benefit}</span>
@@ -107,7 +130,7 @@ export default async function TreatmentDetail({ params }: { params: Promise<{ sl
                   Recovery Process
                 </h2>
                 <p className="text-lg text-[var(--color-paragraph)] leading-relaxed">
-                  {treatment.content.recovery}
+                  {treatment.content_recovery}
                 </p>
               </div>
             </div>
@@ -151,7 +174,7 @@ export default async function TreatmentDetail({ params }: { params: Promise<{ sl
                     Other Treatments
                   </h4>
                   <div className="space-y-2">
-                    {treatmentsData.filter(t => t.id !== treatment.id).slice(0, 4).map((t) => (
+                    {allTreatments.filter(t => t.id !== treatment.id && t.is_published).slice(0, 4).map((t) => (
                       <Link 
                         key={t.id} 
                         href={`/treatments/${t.id}`}

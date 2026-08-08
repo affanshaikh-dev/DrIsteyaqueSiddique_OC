@@ -1,18 +1,26 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Award, BookOpen, Heart, Activity } from "lucide-react";
+import { Award, BookOpen, Heart, Activity, Loader2 } from "lucide-react";
 import { AppointmentCTA } from "@/components/home/AppointmentCTA";
-
-const milestones = [
-  { year: "2008", title: "Medical Degree", desc: "Graduated with honors in Orthopedics." },
-  { year: "2012", title: "Fellowship", desc: "Completed fellowship in Joint Replacement Surgery." },
-  { year: "2015", title: "Chief Surgeon", desc: "Appointed as Chief Orthopedic Surgeon at City Hospital." },
-  { year: "2020", title: "Clinic Founded", desc: "Established Dr. Isteyaque Orthopedic Clinic." },
-];
+import { createClient } from "@/utils/supabase/client";
 
 export default function AboutPage() {
+  const [milestones, setMilestones] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadMilestones() {
+      const supabase = createClient();
+      const { data } = await supabase.from("professional_journey").select("*").order("year", { ascending: false });
+      if (data) setMilestones(data);
+      setLoading(false);
+    }
+    loadMilestones();
+  }, []);
+
   return (
     <div className="pt-24 pb-10">
       {/* Hero Section */}
@@ -63,6 +71,7 @@ export default function AboutPage() {
                 src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=1000&auto=format&fit=crop"
                 alt="Dr. Isteyaque Siddique"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
               />
             </motion.div>
@@ -117,32 +126,40 @@ export default function AboutPage() {
           <div className="max-w-4xl mx-auto relative">
             <div className="absolute left-[28px] md:left-1/2 top-0 bottom-0 w-0.5 bg-blue-100 md:-translate-x-1/2" />
             
-            {milestones.map((milestone, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`relative flex flex-col md:flex-row items-start mb-12 ${
-                  index % 2 === 0 ? "md:flex-row-reverse" : ""
-                }`}
-              >
-                <div className="absolute left-[28px] md:left-1/2 w-4 h-4 rounded-full bg-[var(--color-primary)] border-4 border-white shadow-sm md:-translate-x-1/2 mt-1.5 z-10" />
-                
-                <div className={`ml-16 md:ml-0 md:w-1/2 ${index % 2 === 0 ? "md:pl-12" : "md:pr-12 md:text-right"}`}>
-                  <span className="inline-block px-3 py-1 bg-blue-50 text-[var(--color-primary)] font-bold rounded-full text-sm mb-3">
-                    {milestone.year}
-                  </span>
-                  <h4 className="font-heading font-bold text-xl text-[var(--color-heading)] mb-2">
-                    {milestone.title}
-                  </h4>
-                  <p className="text-[var(--color-paragraph)]">
-                    {milestone.desc}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
+            {loading ? (
+              <div className="flex justify-center py-12 text-gray-400">
+                <Loader2 className="w-8 h-8 animate-spin" />
+              </div>
+            ) : milestones.length === 0 ? (
+              <p className="text-gray-500 text-center py-12 relative z-10 bg-[var(--color-background)]">No milestones available yet.</p>
+            ) : (
+              milestones.map((milestone, index) => (
+                <motion.div
+                  key={milestone.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className={`relative flex flex-col md:flex-row items-start mb-12 ${
+                    index % 2 === 0 ? "md:flex-row-reverse" : ""
+                  }`}
+                >
+                  <div className="absolute left-[28px] md:left-1/2 w-4 h-4 rounded-full bg-[var(--color-primary)] border-4 border-white shadow-sm md:-translate-x-1/2 mt-1.5 z-10" />
+                  
+                  <div className={`ml-16 md:ml-0 md:w-1/2 ${index % 2 === 0 ? "md:pl-12" : "md:pr-12 md:text-right"}`}>
+                    <span className="inline-block px-3 py-1 bg-blue-50 text-[var(--color-primary)] font-bold rounded-full text-sm mb-3">
+                      {milestone.year}
+                    </span>
+                    <h4 className="font-heading font-bold text-xl text-[var(--color-heading)] mb-2">
+                      {milestone.title}
+                    </h4>
+                    <p className="text-[var(--color-paragraph)]">
+                      {milestone.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))
+            )}
           </div>
         </div>
       </section>
