@@ -74,7 +74,7 @@ export default function ContactPage() {
                   <div>
                     <h4 className="font-heading font-semibold text-lg text-[var(--color-heading)] mb-1">Our Location</h4>
                     <p className="text-[var(--color-paragraph)]">
-                      123 Health Avenue, Medical District,<br />City, State 12345
+                      Aventus Heights Commercial Complex, D-wing, first Floor, Shop Number -114,<br />Road No. 5/6, Shivaji Nagar, Govandi - 400043
                     </p>
                   </div>
                 </div>
@@ -85,8 +85,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="font-heading font-semibold text-lg text-[var(--color-heading)] mb-1">Phone Number</h4>
-                    <p className="text-[var(--color-paragraph)]">+91 98765 43210 (Appointments)</p>
-                    <p className="text-[var(--color-paragraph)]">+91 98765 43211 (Emergency)</p>
+                    <p className="text-[var(--color-paragraph)]">+91-8879301365 (Appointments)</p>
                   </div>
                 </div>
 
@@ -106,8 +105,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="font-heading font-semibold text-lg text-[var(--color-heading)] mb-1">Working Hours</h4>
-                    <p className="text-[var(--color-paragraph)]">Mon - Fri: 9:00 AM - 6:00 PM</p>
-                    <p className="text-[var(--color-paragraph)]">Sat: 9:00 AM - 2:00 PM</p>
+                    <p className="text-[var(--color-paragraph)]">Mon to Sat: 07:00 PM - 09:30 PM</p>
                     <p className="text-[var(--color-error)] text-sm mt-1 font-medium">Sunday Closed</p>
                   </div>
                 </div>
@@ -159,7 +157,7 @@ export default function ContactPage() {
                     <input 
                       {...register("phone")}
                       className="w-full h-12 px-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-background)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]/50 transition-all"
-                      placeholder="+91 98765 43210"
+                      placeholder="+91-8879301365"
                     />
                     {errors.phone && <p className="text-xs text-red-500">{errors.phone.message}</p>}
                   </div>

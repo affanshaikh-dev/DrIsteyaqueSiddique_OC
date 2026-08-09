@@ -100,8 +100,8 @@ export default function AboutPage() {
               <div className="grid grid-cols-2 gap-6 mt-10">
                 <div className="bg-[var(--color-surface)] p-6 rounded-2xl border border-[var(--color-border)]">
                   <Award className="w-8 h-8 text-[var(--color-primary)] mb-3" />
-                  <h4 className="font-heading font-bold text-xl mb-1">Board Certified</h4>
-                  <p className="text-sm text-[var(--color-paragraph)]">American Board of Orthopaedic Surgery</p>
+                  <h4 className="font-heading font-bold text-xl mb-1">Qualifications</h4>
+                  <p className="text-sm text-[var(--color-paragraph)]">DNB ORTHO (Mum), MBBS (Mum), dip.sports medicine (FIFA)</p>
                 </div>
                 <div className="bg-[var(--color-surface)] p-6 rounded-2xl border border-[var(--color-border)]">
                   <BookOpen className="w-8 h-8 text-[var(--color-primary)] mb-3" />

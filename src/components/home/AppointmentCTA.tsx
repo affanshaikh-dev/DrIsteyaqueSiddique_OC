@@ -53,8 +53,8 @@ export function AppointmentCTA() {
                 </Link>
               </Button>
               <Button asChild size="lg" className="bg-transparent border-2 border-white/40 text-white hover:bg-white/10 h-14 px-8 w-full sm:w-auto text-base backdrop-blur-sm transition-all font-semibold">
-                <a href="tel:+919876543210">
-                  <Phone className="mr-2 w-5 h-5" /> Call +91 98765 43210
+                <a href="tel:+918879301365">
+                  <Phone className="mr-2 w-5 h-5" /> Call +91-8879301365
                 </a>
               </Button>
             </motion.div>

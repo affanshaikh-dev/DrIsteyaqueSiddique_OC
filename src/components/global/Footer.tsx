@@ -87,11 +87,11 @@ export function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3 text-blue-200 text-sm">
                 <MapPin size={18} className="shrink-0 mt-0.5" />
-                <span>123 Health Avenue, Medical District, City, State 12345</span>
+                <span>Aventus Heights Commercial Complex, D-wing, first Floor, Shop Number -114, Road No. 5/6, Shivaji Nagar, Govandi - 400043</span>
               </li>
               <li className="flex items-center gap-3 text-blue-200 text-sm">
                 <Phone size={18} className="shrink-0" />
-                <span>+91 98765 43210</span>
+                <span>+91-8879301365</span>
               </li>
               <li className="flex items-center gap-3 text-blue-200 text-sm">
                 <Mail size={18} className="shrink-0" />
@@ -99,25 +99,19 @@ export function Footer() {
               </li>
             </ul>
             <div className="mt-8">
-              <Button className="w-full justify-between bg-white text-[var(--color-primary)] hover:bg-gray-100">
-                Book Appointment <ArrowRight size={16} />
+              <Button asChild className="w-full justify-between bg-white text-[var(--color-primary)] hover:bg-gray-100">
+                <Link href="/contact">
+                  Book Appointment <ArrowRight size={16} />
+                </Link>
               </Button>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-blue-200 text-sm text-center md:text-left">
+        <div className="border-t border-white/10 pt-8 flex flex-col justify-center items-center gap-4">
+          <p className="text-blue-200 text-sm text-center">
             © {new Date().getFullYear()} Dr. Isteyaque Orthopedic Clinic. All rights reserved.
           </p>
-          <div className="flex gap-6">
-            <Link href="/privacy" className="text-blue-200 hover:text-white text-sm transition-colors">
-              Privacy Policy
-            </Link>
-            <Link href="/terms" className="text-blue-200 hover:text-white text-sm transition-colors">
-              Terms of Service
-            </Link>
-          </div>
         </div>
       </div>
     </footer>

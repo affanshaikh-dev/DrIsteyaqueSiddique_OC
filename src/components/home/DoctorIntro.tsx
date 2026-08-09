@@ -64,7 +64,7 @@ export function DoctorIntro() {
               Dr. Isteyaque Siddique
             </h2>
             <p className="text-xl text-[var(--color-primary)] font-medium mb-6">
-              M.S. Orthopedics, Fellowship in Joint Replacement
+              DNB ORTHO (Mum), MBBS (Mum), dip.sports medicine (FIFA)
             </p>
 
             <p className="text-[var(--color-paragraph)] leading-relaxed mb-8">

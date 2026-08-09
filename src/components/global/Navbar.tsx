@@ -137,7 +137,7 @@ export function Navbar() {
                 <div className="w-8 h-8 rounded-full bg-[var(--color-background)] flex items-center justify-center text-[var(--color-primary)]">
                   <Phone size={14} />
                 </div>
-                <span>+91 98765 43210</span>
+                <span>+91-8879301365</span>
               </div>
               <Button asChild className="hidden md:inline-flex">
                 <Link href="/contact">Book Appointment</Link>
@@ -177,7 +177,7 @@ export function Navbar() {
                 <div className="w-10 h-10 rounded-full bg-[var(--color-background)] flex items-center justify-center text-[var(--color-primary)]">
                   <Phone size={18} />
                 </div>
-                <span>+91 98765 43210</span>
+                <span>+91-8879301365</span>
               </div>
               <Button asChild size="lg" className="w-full">
                 <Link href="/contact">Book Appointment</Link>

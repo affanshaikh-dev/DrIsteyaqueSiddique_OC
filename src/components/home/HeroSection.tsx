@@ -13,15 +13,23 @@ import "swiper/css/pagination";
 const heroSlides = [
   {
     id: 1,
-    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=2000",
+    image: "/all_orthopadic_treatment.jpeg",
   },
   {
     id: 2,
-    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=2000",
+    image: "/total_nee_replacement.jpeg",
   },
   {
     id: 3,
-    image: "https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&q=80&w=2000",
+    image: "/total_hip_replacement.jpeg",
+  },
+  {
+    id: 4,
+    image: "/sports_injury.jpeg",
+  },
+  {
+    id: 5,
+    image: "/arthoscopic.jpeg",
   }
 ];
 
@@ -29,7 +37,7 @@ export function HeroSection() {
   return (
     <section className="relative w-full pt-28 pb-8 px-4 md:px-8 xl:px-0 bg-[var(--color-background)]">
       <div className="container mx-auto max-w-[1280px]">
-        <div className="relative w-full h-[60vh] min-h-[400px] lg:h-[80vh] rounded-[40px] overflow-hidden shadow-2xl">
+        <div className="relative w-full rounded-[40px] overflow-hidden shadow-2xl">
           <Swiper
             modules={[Autoplay, EffectFade, Navigation, Pagination]}
             effect="fade"
@@ -41,18 +49,18 @@ export function HeroSection() {
             navigation
             pagination={{ clickable: true }}
             loop={true}
-            className="w-full h-full"
+            className="w-full"
           >
             {heroSlides.map((slide) => (
-              <SwiperSlide key={slide.id} className="relative w-full h-full">
-                {/* Background Image */}
-                <div className="absolute inset-0 w-full h-full">
+              <SwiperSlide key={slide.id} className="relative w-full">
+                <div className="relative w-full">
                   <Image
                     src={slide.image}
                     alt={`Slide ${slide.id}`}
-                    fill
+                    width={1920}
+                    height={1080}
                     priority={slide.id === 1}
-                    className="object-cover"
+                    className="w-full h-auto object-cover"
                   />
                   {/* Subtle overlay for better visual balance */}
                   <div className="absolute inset-0 bg-black/10 mix-blend-multiply" />

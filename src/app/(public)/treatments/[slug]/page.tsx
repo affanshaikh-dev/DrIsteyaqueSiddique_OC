@@ -159,11 +159,11 @@ export default function TreatmentDetail() {
                     </Link>
                     
                     <a 
-                      href="tel:+919876543210" 
+                      href="tel:+918879301365" 
                       className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-[var(--color-background)] text-[var(--color-heading)] rounded-xl font-semibold hover:bg-gray-100 transition-colors border border-[var(--color-border)]"
                     >
                       <Phone className="w-5 h-5 text-[var(--color-primary)]" />
-                      Call +91 98765 43210
+                      Call +91-8879301365
                     </a>
                   </div>
                 </div>
