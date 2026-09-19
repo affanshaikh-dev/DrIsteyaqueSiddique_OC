@@ -5,7 +5,7 @@ import Script from "next/script";
 export function Testimonials() {
   return (
     <section className="py-20 lg:py-32 bg-[var(--color-background)]">
-      <div className="container mx-auto max-w-[1280px] px-4 md:px-8 xl:px-0">
+      <div className="container mx-auto max-w-[1280px] px-4 md:px-8 ">
         
 
         {/* Elfsight Google Reviews Widget */}

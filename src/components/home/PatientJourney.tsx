@@ -24,7 +24,7 @@ export function PatientJourney() {
 
   return (
     <section className="py-20 lg:py-32 bg-white overflow-hidden">
-      <div className="container mx-auto max-w-[1280px] px-4 md:px-8 xl:px-0">
+      <div className="container mx-auto max-w-[1280px] px-4 md:px-8 ">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="text-4xl lg:text-5xl font-heading font-bold text-[var(--color-heading)] mb-6">
             Your Journey to <span className="text-[var(--color-primary)]">Recovery</span>

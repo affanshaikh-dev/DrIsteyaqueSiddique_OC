@@ -51,7 +51,7 @@ export default function GalleryPage() {
   return (
     <div className="pt-24 pb-10">
       <section className="py-16 md:py-24 bg-[var(--color-background)]">
-        <div className="container mx-auto max-w-[1280px] px-4 md:px-8 xl:px-0">
+        <div className="container mx-auto max-w-[1280px] px-4 md:px-8 ">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <h1 className="text-4xl md:text-5xl font-heading font-bold text-[var(--color-heading)] mb-6">
               Our <span className="text-[var(--color-primary)]">Gallery</span>
@@ -78,8 +78,10 @@ export default function GalleryPage() {
           </div>
 
           {loading ? (
-            <div className="flex justify-center py-20 text-gray-400">
-              <span className="animate-pulse font-medium">Loading gallery...</span>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[1, 2, 3, 4, 5, 6].map((i) => (
+                <div key={i} className="aspect-square bg-gray-200 animate-pulse rounded-3xl" />
+              ))}
             </div>
           ) : filteredImages.length === 0 ? (
             <div className="text-center py-20 text-gray-500">

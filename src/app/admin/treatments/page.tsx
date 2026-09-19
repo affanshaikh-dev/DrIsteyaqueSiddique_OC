@@ -135,17 +135,19 @@ export default function AdminTreatments() {
 
   return (
     <div className="h-full flex flex-col">
-      <div className="flex justify-between items-center mb-8 shrink-0">
-        <h1 className="text-3xl font-heading font-bold text-gray-900">Manage Treatments</h1>
-        <Button onClick={openCreateModal} className="bg-[var(--color-primary)] hover:bg-blue-700 text-white flex items-center gap-2">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8 shrink-0">
+        <h1 className="text-2xl sm:text-3xl font-heading font-bold text-gray-900">Manage Treatments</h1>
+        <Button onClick={openCreateModal} className="bg-[var(--color-primary)] hover:bg-blue-700 text-white flex items-center justify-center gap-2 w-full sm:w-auto">
           <Plus className="w-4 h-4" /> Add New Treatment
         </Button>
       </div>
 
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex-grow flex flex-col">
         {loading ? (
-          <div className="p-12 flex justify-center items-center text-gray-400 flex-grow">
-            <Loader2 className="w-8 h-8 animate-spin" />
+          <div className="p-6 flex-grow flex flex-col gap-4">
+            {[1, 2, 3, 4, 5].map((i) => (
+              <div key={i} className="h-16 w-full bg-gray-100 animate-pulse rounded-xl" />
+            ))}
           </div>
         ) : treatments.length === 0 ? (
           <div className="p-12 text-center text-gray-500 flex-grow flex flex-col items-center justify-center">

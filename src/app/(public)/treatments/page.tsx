@@ -48,7 +48,7 @@ export default function TreatmentsCatalog() {
           }}
         />
         <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-white/5 blur-3xl" />
-        <div className="container mx-auto max-w-[1280px] px-4 md:px-8 xl:px-0 relative z-10">
+        <div className="container mx-auto max-w-[1280px] px-4 md:px-8  relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -72,12 +72,23 @@ export default function TreatmentsCatalog() {
 
       {/* Catalog Grid */}
       <section className="py-12 pb-24">
-        <div className="container mx-auto max-w-[1280px] px-4 md:px-8 xl:px-0">
+        <div className="container mx-auto max-w-[1280px] px-4 md:px-8 ">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {loading ? (
-              <div className="col-span-full flex justify-center py-20 text-gray-400">
-                <Loader2 className="w-8 h-8 animate-spin" />
-              </div>
+              <>
+                {[1, 2, 3, 4, 5, 6].map((i) => (
+                  <div key={i} className="bg-white rounded-[32px] overflow-hidden shadow-sm border border-gray-100 h-80 p-8 flex flex-col justify-center">
+                    <div className="w-12 h-12 rounded-2xl bg-gray-100 animate-pulse mb-6" />
+                    <div className="h-6 bg-gray-100 animate-pulse rounded w-3/4 mb-4" />
+                    <div className="space-y-2 mb-8 flex-grow">
+                      <div className="h-4 bg-gray-100 animate-pulse rounded w-full" />
+                      <div className="h-4 bg-gray-100 animate-pulse rounded w-5/6" />
+                      <div className="h-4 bg-gray-100 animate-pulse rounded w-4/6" />
+                    </div>
+                    <div className="h-10 w-32 bg-gray-100 animate-pulse rounded-full" />
+                  </div>
+                ))}
+              </>
             ) : treatmentsData.length === 0 ? (
               <div className="col-span-full text-center text-gray-500 py-20">
                 <p>No treatments found.</p>

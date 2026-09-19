@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 export function DoctorIntro() {
   return (
     <section className="py-20 lg:py-32 bg-[var(--color-background)] overflow-hidden">
-      <div className="container mx-auto max-w-[1280px] px-4 md:px-8 xl:px-0">
+      <div className="container mx-auto max-w-[1280px] px-4 md:px-8 ">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-12 items-center">
           {/* Image Side */}
           <motion.div
@@ -30,22 +30,6 @@ export function DoctorIntro() {
                 className="object-cover"
               />
             </div>
-
-            {/* Experience Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="absolute -bottom-8 -right-4 lg:-right-8 bg-white p-6 rounded-2xl shadow-xl w-64"
-            >
-              <h4 className="font-heading font-bold text-[var(--color-primary)] text-3xl mb-1">
-                5000+
-              </h4>
-              <p className="text-[var(--color-heading)] font-medium text-sm">
-                Successful Surgeries Performed
-              </p>
-            </motion.div>
           </motion.div>
 
           {/* Content Side */}
@@ -56,7 +40,7 @@ export function DoctorIntro() {
             transition={{ duration: 0.6 }}
             className="max-w-xl mx-auto lg:mx-0"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-50 text-green-700 text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 text-[var(--color-primary)] text-sm font-bold mb-6 uppercase tracking-wider">
               About The Doctor
             </div>
 
@@ -64,29 +48,29 @@ export function DoctorIntro() {
               Dr. Isteyaque Siddique
             </h2>
             <p className="text-xl text-[var(--color-primary)] font-medium mb-6">
-              DNB ORTHO (Mum), MBBS (Mum), dip.sports medicine (FIFA)
+              DNB – Orthopaedics, Fellowship in Joint Replacement & Sports Medicine
             </p>
 
-            <p className="text-[var(--color-paragraph)] leading-relaxed mb-8">
-              With over 15 years of dedicated experience in orthopedics, Dr. Isteyaque specializes in complex joint replacements, arthroscopic surgeries, and sports injuries. His patient-first approach ensures that every individual receives a tailored treatment plan for optimal recovery.
+            <p className="text-[var(--color-paragraph)] leading-relaxed text-lg mb-8">
+              Dr. Isteyaque Siddique is an Orthopaedic Surgeon with a focused practice in Trauma, Joint Replacement and Sports Medicine. His approach combines clinical expertise, careful diagnosis, and individualized treatment planning to help patients make informed decisions about their musculoskeletal health.
             </p>
 
             <ul className="space-y-4 mb-10">
               {[
-                "Pioneer in Minimally Invasive Knee Surgery",
-                "Advanced Training in Sports Medicine",
-                "Consultant at Top Tier Hospitals",
-                "Dedicated to Rapid Recovery Protocols",
+                "Expertise in Trauma, Joint Replacement & Sports Medicine",
+                "Fellowship training in Arthroscopy",
+                "FIFA Diploma in Football Medicine",
+                "Individualized treatment approach",
               ].map((item, index) => (
                 <li key={index} className="flex items-center gap-3 text-[var(--color-heading)]">
-                  <CheckCircle2 className="w-5 h-5 text-[var(--color-accent)] shrink-0" />
+                  <CheckCircle2 className="w-5 h-5 text-[var(--color-primary)] shrink-0" />
                   <span className="font-medium">{item}</span>
                 </li>
               ))}
             </ul>
 
             <div className="flex items-center gap-4">
-              <Button asChild size="lg" className="rounded-full shadow-lg shadow-blue-900/20">
+              <Button asChild size="lg" className="rounded-full shadow-lg shadow-blue-900/20 px-8">
                 <Link href="/about">Read Full Profile</Link>
               </Button>
             </div>

@@ -35,7 +35,7 @@ const heroSlides = [
 
 export function HeroSection() {
   return (
-    <section className="relative w-full pt-28 pb-8 px-4 md:px-8 xl:px-0 bg-[var(--color-background)]">
+    <section className="relative w-full pt-28 pb-8 px-4 md:px-8  bg-[var(--color-background)]">
       <div className="container mx-auto max-w-[1280px]">
         <div className="relative w-full rounded-[40px] overflow-hidden shadow-2xl">
           <Swiper

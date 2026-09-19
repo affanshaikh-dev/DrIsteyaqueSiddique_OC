@@ -150,8 +150,20 @@ export default function AdminGallery() {
 
       <div className="bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-gray-100 min-h-[60vh]">
         {loading ? (
-          <div className="flex justify-center items-center h-64 text-gray-400">
-            <Loader2 className="w-8 h-8 animate-spin" />
+          <div className="space-y-12">
+            {[1, 2].map((i) => (
+              <div key={i}>
+                <div className="flex items-center gap-3 mb-6 border-b border-gray-100 pb-2">
+                  <div className="h-7 w-32 bg-gray-100 animate-pulse rounded-md" />
+                  <div className="h-6 w-8 bg-gray-100 animate-pulse rounded-full" />
+                </div>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+                  {[1, 2, 3, 4, 5, 6].map((j) => (
+                    <div key={j} className="aspect-square bg-gray-100 animate-pulse rounded-xl" />
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         ) : images.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-64 text-gray-500">

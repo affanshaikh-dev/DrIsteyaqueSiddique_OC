@@ -92,8 +92,10 @@ export default function AdminFAQs() {
 
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
         {loading ? (
-          <div className="p-12 flex justify-center items-center text-gray-400">
-            <Loader2 className="w-8 h-8 animate-spin" />
+          <div className="p-6 flex flex-col gap-4">
+            {[1, 2, 3, 4, 5].map((i) => (
+              <div key={i} className="h-16 w-full bg-gray-100 animate-pulse rounded-xl" />
+            ))}
           </div>
         ) : faqs.length === 0 ? (
           <div className="p-12 text-center text-gray-500">

@@ -31,8 +31,29 @@ export default function TreatmentDetail() {
 
   if (loading) {
     return (
-      <div className="pt-40 pb-20 flex justify-center items-center min-h-[50vh]">
-        <Loader2 className="w-10 h-10 animate-spin text-[var(--color-primary)]" />
+      <div className="pt-24 pb-10">
+        <div className="py-20 bg-gray-50">
+           <div className="container mx-auto max-w-[1280px] px-4 md:px-8">
+             <div className="h-6 w-24 bg-gray-200 animate-pulse rounded-full mb-6" />
+             <div className="h-14 w-3/4 max-w-2xl bg-gray-200 animate-pulse rounded-xl mb-6" />
+             <div className="h-24 w-full max-w-3xl bg-gray-200 animate-pulse rounded-xl" />
+           </div>
+        </div>
+        <div className="py-16 md:py-24 bg-white">
+           <div className="container mx-auto max-w-[1280px] px-4 md:px-8 flex flex-col lg:flex-row gap-16">
+              <div className="lg:w-2/3 space-y-12">
+                 <div className="w-full h-[400px] rounded-3xl bg-gray-100 animate-pulse" />
+                 <div className="space-y-4">
+                    <div className="h-8 w-48 bg-gray-100 animate-pulse rounded-lg" />
+                    <div className="h-32 w-full bg-gray-100 animate-pulse rounded-xl" />
+                 </div>
+              </div>
+              <div className="lg:w-1/3 space-y-6">
+                 <div className="h-80 w-full bg-gray-100 animate-pulse rounded-3xl" />
+                 <div className="h-64 w-full bg-gray-100 animate-pulse rounded-3xl" />
+              </div>
+           </div>
+        </div>
       </div>
     );
   }

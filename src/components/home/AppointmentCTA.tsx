@@ -8,7 +8,7 @@ import Link from "next/link";
 export function AppointmentCTA() {
   return (
     <section className="py-16 bg-[var(--color-background)]">
-      <div className="container mx-auto max-w-[1280px] px-4 md:px-8 xl:px-0">
+      <div className="container mx-auto max-w-[1280px] px-4 md:px-8 ">
         <div className="bg-[var(--color-primary)] rounded-3xl p-8 md:p-16 text-center relative overflow-hidden shadow-xl">
           {/* Background Image with Overlay */}
           <div 
